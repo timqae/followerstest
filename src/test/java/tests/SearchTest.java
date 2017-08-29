@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class SearchTest {
 
     public AndroidDriver driver;
-    HomePage page;
+    //HomePage page;
 
     @BeforeMethod
     public void setUpAppium() throws MalformedURLException {
@@ -27,12 +27,13 @@ public class SearchTest {
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        page = new HomePage(driver);
+        //page = new HomePage(driver);
     }
 
     @Test
     public void searchTag(){
-        page.searchLens.click();
-        page.searchField.sendKeys("Summer");
+        HomePage homepage = new HomePage(driver);
+        homepage.searchLens.click();
+        homepage.searchField.sendKeys("Summer");
     }
 }
